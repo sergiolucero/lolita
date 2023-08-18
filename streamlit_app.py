@@ -1,14 +1,11 @@
 import streamlit as st
-from textlib import COMPLETION_MODEL, TRANSCRIPTION_MODEL, VERSION
-from linelib import simple_recorder # was linetabs
-from datetime import datetime
-##############################################
-st.set_page_config(layout="wide")
-#fecha = datetime.now().strftime('%Y-%m-%d')
-fecha = '2023-07-25'  # HARDCODED IN DAVIS!
+import os
 
-st.title('👨‍⚕️CETRAM QuantMed LLM Doctor🤖')
-dropline = f'(version {VERSION}). Fecha={fecha}. Modelos: [complete={COMPLETION_MODEL}, transcribe={TRANSCRIPTION_MODEL}]'
-st.write(dropline)
-############################
-simple_recorder()
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
+
+st.markdown(
+    """
+    <h3 style="color: #FFD700; text-align: center; font-size: 48px; font-weight: bold; text-shadow: 2px 2px 4px #000000;">LolitaGPT</h3>
+    """,
+    unsafe_allow_html=True,
+)
